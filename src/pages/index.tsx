@@ -9,24 +9,24 @@ import styles from "./styles.module.css";
 
 const features = [
   {
-    title: "Any browser \u2022 Any platform \u2022 One API",
+    title: "任意浏览器 \u2022 全平台 \u2022 同一套 API",
     description: <>
       <p>
-        <b>Cross-browser.</b> Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox.
+        <b>跨浏览器。</b> Playwright 支持所有现代渲染引擎，包括： Chromium、WebKit 和 Firefox。
       </p>
       <p>
-        <b>Cross-platform.</b> Test on Windows, Linux, and macOS, locally or on CI, headless or headed.
+        <b>跨平台。</b> 适用于 Windows、Linux、macOS、本地运行、 CI、headless 和 headed。
       </p>
       <p>
-        <b>Cross-language.</b> Use the Playwright API in <a
+        <b>跨语言。</b> 在 <a
         href="https://playwright.dev/docs/intro">TypeScript</a>, <a
         href="https://playwright.dev/docs/intro">JavaScript</a>, <a
         href="https://playwright.dev/python/docs/intro">Python</a>, <a
         href="https://playwright.dev/dotnet/docs/intro">.NET</a>, <a
-        href="https://playwright.dev/java/docs/intro">Java</a>.
+        href="https://playwright.dev/java/docs/intro">Java</a> 中使用 Playwright API
       </p>
       <p>
-        <b>Test Mobile Web.</b> Native mobile emulation of Google Chrome for Android and Mobile Safari. The same rendering engine works on your Desktop and in the Cloud.
+        <b>测试移动端 Web 。</b> 对 Android 和 Mobile Safari 的 Google Chrome 原生移动端模拟。与你的移动端和云端应用采用相同的渲染引擎。
       </p>
     </>,
   },
@@ -35,45 +35,39 @@ const features = [
   {
   },
   {
-    title: "Resilient \u2022 No flaky tests",
+    title: "强适应性 \u2022 测试不再容易失效",
     description: (
       <>
         <p>
-          <b>Auto-wait.</b> Playwright waits for elements to be actionable prior to performing
-          actions. It also has a rich set of introspection events. The combination of the two
-          eliminates the need for artificial timeouts - the primary cause of flaky tests.
+          <b>自动等待（auto-waits）。</b> Playwright 能够自动等待元素达到可操作的状态，外加一系列丰富的内置事件。不用再人工定义超时（timeouts） —— 这是测试容易失效的主要原因。
         </p>
         <p>
-          <b>Web-first assertions.</b> Playwright assertions are created specifically for the
-          dynamic web. Checks are automatically retried until the necessary conditions are met.
+          <b>Web 优先的断言。</b> Playwright 断言专门为动态加载的 web 应用设计。能够在满足需要的条件前自动重试。
         </p>
         <p>
-          <b>Tracing.</b> Configure test retry strategy, capture execution trace, videos, screenshots
-          to eliminate flakes.
+          <b>可追踪。</b> 通过配置重试策略，采用捕捉执行轨迹、视频、截图来解决测试容易失效的问题。
         </p>
       </>
     ),
   },
   {
-    title: "No trade-offs \u2022 No limits",
+    title: "不用再权衡取舍 \u2022 不再有限制",
     description: (
       <>
         <p>
-          Browsers run web content belonging to different origins in different processes.
-          Playwright is aligned with the modern browsers architecture and runs tests out-of-process.
-          This makes Playwright free of the typical in-process test runner limitations.
+          浏览器在不同进程中运行属于不同来源的 Web 内容。
+          Playwright 与现代浏览器架构保持一致，并在进程外运行测试。
+          这使 Playwright 摆脱了典型的进程内测试运行程序限制。
         </p>
         <p>
-          <b>Multiple everything.</b> Test scenarios that span multiple <b>tabs</b>, multiple <b>origins</b> and multiple <b>users</b>.
-          Create scenarios with different contexts for different users and run them against your server, all in one test.
+          <b>一切并行。</b> 跨越多个 <b>tabs</b>, 多个 <b>origins</b> 和多个 <b>users</b> 的测试场景。
+          在一个测试中能够为不同的用户创建具有不同上下文的场景，并能在你的服务器上运行。
         </p>
         <p>
-          <b>Trusted events.</b> Hover elements, interact with dynamic controls, produce trusted events.
-          Playwright uses real browser input pipeline indistinguishable from the real user.
+          <b>可信事件。</b> 元素悬停（hover）、动态控件的交互、生产可信事件。Playwright 使用与真实用户一致的输入方式（pipeline）。
         </p>
         <p>
-          <b>Test frames, pierce Shadow DOM.</b> Playwright selectors pierce shadow DOM and
-          allow entering frames seamlessly.
+          <b>测试 frames，穿透 Shadow DOM。</b> Playwright 的选择器能够穿透 shadowDOM 和允许无缝输入 frame。
         </p>
       </>
     ),
@@ -83,34 +77,31 @@ const features = [
   {
   },
   {
-    title: "Full isolation \u2022 Fast execution",
+    title: "完全隔离 \u2022 快速执行",
     description: (
       <>
         <p>
-          <b>Browser contexts.</b> Playwright creates a browser context for each test. Browser
-          context is equivalent to a brand new browser profile. This delivers full test isolation
-          with zero overhead. Creating a new browser context only takes a handful of milliseconds.
+          <b>浏览器上下文。</b> Playwright 为每个测试创建一个浏览器上下文。浏览器上下文相当于一个全新的浏览器配置文件。这提供了零开销的完整测试隔离。 创建一个新的浏览器上下文只需要几毫秒。
         </p>
         <p>
-          <b>Log in once.</b> Save the authentication state of the context and reuse it in all the tests.
-          This bypasses repetitive log-in operations in each test, yet delivers full isolation of independent tests.
+          <b>一次登录。</b> 保存上下文的身份验证状态并在所有测试中重用它。
+            这绕过了每个测试中的重复登录操作，但提供了独立测试的完全隔离。
         </p>
       </>
     ),
   },
   {
-    title: "Powerful Tooling",
+    title: "强大的工具",
     description: (
       <>
         <p>
-          <b>Codegen.</b> Generate tests by recording your actions. Save them into any language.
+          <b>Codegen 。</b> 通过记录您的操作来生成测试。 将它们保存为各种语言。
         </p>
         <p>
-          <b>Playwright inspector.</b> Inspect page, generate selectors, step through the test execution, see click points, explore execution logs.
+          <b>Playwright inspector 。</b> 检查页面，生成选择器，逐步执行测试，查看点击点，浏览执行日志。
         </p>
         <p>
-          <b>Trace Viewer.</b> Capture all the information to investigate the test failure. Playwright trace
-          contains test execution screencast, live DOM snapshots, action explorer, test source, and many more.
+          <b>Trace Viewer 。</b> 捕获所有的信息来调查失败了的测试，Playwright 追踪包含测试运行截屏视频、实时 DOM 快照、动作浏览器、测试源等信息。
         </p>
       </>
     ),
@@ -216,15 +207,14 @@ const Home: React.FC = () => {
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className={clsx("hero__title", styles.heroTitle)}>
-            <span className={styles.highlight}>Playwright</span> enables
-            reliable end-to-end testing for modern web apps.
+            <span className={styles.highlight}>Playwright</span> 为现代 web 应用提供可靠的端到端测试
           </h1>
           <div className={styles.buttons}>
             <Link
               className={styles.getStarted}
               to={useBaseUrl("docs/intro")}
             >
-              Get started
+              快速入门
             </Link>
             <GitHubStarButton owner="microsoft" repo={siteConfig.customFields.repositoryName}/>
           </div>
@@ -251,7 +241,7 @@ const Home: React.FC = () => {
           <div className="container">
             <div className="row">
               <div className={clsx("col col--12", styles.logosColumn)}>
-                <h2>Chosen by companies and open source projects</h2>
+                <h2>应用于各大公司和开源项目</h2>
                 <ul className={styles.logosList}>
                   {logos.map(({ imageUrl, href }, idx) => (
                     <li key={idx}>

@@ -38,8 +38,8 @@ if (isProd) {
 }
 
 module.exports = {
-  title: "Playwright",
-  tagline: "Fast and reliable end-to-end testing for modern web apps",
+  title: "Playwright 中文文档",
+  tagline: "适用于现代 Web 应用程序的快速可靠的端到端测试框架",
   // Repo config for GitHub Pages
   url: "https://playwright.dev",
   baseUrl: "/",
@@ -68,7 +68,7 @@ module.exports = {
         {
           type: "doc",
           docId: "intro",
-          label: "Docs",
+          label: "文档",
           position: "left",
         },
         {
@@ -112,7 +112,7 @@ module.exports = {
         },
         {
           to: '/community/welcome',
-          label: 'Community',
+          label: '社区',
           position: 'left',
           activeBaseRegex: `/community/`,
         },
@@ -122,20 +122,20 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "文档",
           items: [
             {
-              label: "Getting started",
+              label: "快速入门",
               to: "docs/intro",
             },
             {
-              label: "API reference",
+              label: "API 参考",
               to: "docs/api/class-playwright",
             },
           ],
         },
         {
-          title: "Community",
+          title: "社区",
           items: [
             {
               label: "Stack Overflow",
@@ -152,7 +152,7 @@ module.exports = {
           ],
         },
         {
-          title: "More",
+          title: "更多",
           items: [
             {
               label: "GitHub",

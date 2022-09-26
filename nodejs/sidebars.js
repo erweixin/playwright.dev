@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Getting Started',
+      label: '快速入门',
       items: [
         { type: 'doc', id: 'intro' },
         { type: 'doc', id: 'writing-tests' },
