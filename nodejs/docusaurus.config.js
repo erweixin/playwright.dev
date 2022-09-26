@@ -31,6 +31,13 @@ let plugins = [
   ],
   require.resolve("@docusaurus/plugin-content-pages"),
   require.resolve("./plugins/playwright-analytics-integration/lib/index.js"),
+  [
+    require.resolve("@docusaurus/plugin-google-gtag"),
+    {
+      trackingID: 'G-4GZ4JRQ8QP',
+      anonymizeIP: true,
+    },
+  ],
 ];
 
 if (isProd) {
@@ -50,6 +57,7 @@ module.exports = {
   scripts: ["/js/redirection.js"],
   favicon: "img/playwright-logo.svg",
   themeConfig: {
+    metadata: [{name: 'bytedance-verification-code', content: 'VHB9sPiZHJz5aEva9H7K'}],
     colorMode: {
       defaultMode: "dark",
       respectPrefersColorScheme: true,
