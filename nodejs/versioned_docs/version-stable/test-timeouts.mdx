@@ -374,7 +374,7 @@ API reference: [testOptions.actionTimeout](/api/class-testoptions.mdx#test-optio
 import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev', { timeout: 30000 });
+  await page.goto('https://playwright.pro', { timeout: 30000 });
   await page.locator('text=Get Started').click({ timeout: 10000 });
 });
 ```
@@ -386,7 +386,7 @@ test('basic test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev', { timeout: 30000 });
+  await page.goto('https://playwright.pro', { timeout: 30000 });
   await page.locator('text=Get Started').click({ timeout: 10000 });
 });
 ```

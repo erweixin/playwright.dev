@@ -21,7 +21,7 @@ toc_max_heading_level: 2
 A bunch of Playwright APIs already support the `wait_until: "domcontentloaded"` option. For example:
 
 ```py
-page.goto("https://playwright.dev", wait_until="domcontentloaded")
+page.goto("https://playwright.pro", wait_until="domcontentloaded")
 ```
 
 Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` event.
@@ -75,7 +75,7 @@ Linux support looks like this:
 
 ### New introduction docs
 
-We rewrote our Getting Started docs to be more end-to-end testing focused. Check them out on [playwright.dev](https://playwright.dev/python/docs/intro).
+We rewrote our Getting Started docs to be more end-to-end testing focused. Check them out on [playwright.pro](https://playwright.pro/python/docs/intro).
 
 ## Version 1.23
 
@@ -577,9 +577,9 @@ Read more at [our documentation](./api/class-framelocator).
 
 ### Trace Viewer Update
 
-Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
+Playwright Trace Viewer is now **available online** at https://trace.playwright.pro! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
-> **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
+> **NOTE**: trace files are not uploaded anywhere; [trace.playwright.pro](https://trace.playwright.pro) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
 - Playwright Test traces now include sources by default (these could be turned off with tracing option)
 - Trace Viewer now shows test name
 - New trace metadata tab with browser details
@@ -647,29 +647,29 @@ This version of Playwright was also tested against the following stable channels
 
 ### 🖱️ Mouse Wheel
 
-By using [`Page.mouse.wheel`](https://playwright.dev/python/docs/api/class-mouse#mouse-wheel) you are now able to scroll vertically or horizontally.
+By using [`Page.mouse.wheel`](https://playwright.pro/python/docs/api/class-mouse#mouse-wheel) you are now able to scroll vertically or horizontally.
 
 ### 📜 New Headers API
 
 Previously it was not possible to get multiple header values of a response. This is now  possible and additional helper functions are available:
-- [Request.all_headers()](https://playwright.dev/python/docs/api/class-request#request-all-headers)
-- [Request.headers_array()](https://playwright.dev/python/docs/api/class-request#request-headers-array)
-- [Request.header_value(name: str)](https://playwright.dev/python/docs/api/class-request#request-header-value)
-- [Response.all_headers()](https://playwright.dev/python/docs/api/class-response#response-all-headers)
-- [Response.headers_array()](https://playwright.dev/python/docs/api/class-response#response-headers-array)
-- [Response.header_value(name: str)](https://playwright.dev/python/docs/api/class-response#response-header-value)
-- [Response.header_values(name: str)](https://playwright.dev/python/docs/api/class-response#response-header-values)
+- [Request.all_headers()](https://playwright.pro/python/docs/api/class-request#request-all-headers)
+- [Request.headers_array()](https://playwright.pro/python/docs/api/class-request#request-headers-array)
+- [Request.header_value(name: str)](https://playwright.pro/python/docs/api/class-request#request-header-value)
+- [Response.all_headers()](https://playwright.pro/python/docs/api/class-response#response-all-headers)
+- [Response.headers_array()](https://playwright.pro/python/docs/api/class-response#response-headers-array)
+- [Response.header_value(name: str)](https://playwright.pro/python/docs/api/class-response#response-header-value)
+- [Response.header_values(name: str)](https://playwright.pro/python/docs/api/class-response#response-header-values)
 
 ### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [context options](https://playwright.dev/python/docs/api/class-browser#browser-new-context-option-forced-colors) or calling [Page.emulate_media()](https://playwright.dev/python/docs/api/class-page#page-emulate-media).
+Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [context options](https://playwright.pro/python/docs/api/class-browser#browser-new-context-option-forced-colors) or calling [Page.emulate_media()](https://playwright.pro/python/docs/api/class-page#page-emulate-media).
 
 ### New APIs
-- [Page.route()](https://playwright.dev/python/docs/api/class-page#page-route) accepts new `times` option to specify how many times this route should be matched.
-- [Page.set_checked(selector: str, checked: bool)](https://playwright.dev/python/docs/api/class-page#page-set-checked) and [Locator.set_checked(selector: str, checked: bool)](https://playwright.dev/python/docs/api/class-locator#locator-set-checked) was introduced to set the checked state of a checkbox.
-- [Request.sizes()](https://playwright.dev/python/docs/api/class-request#request-sizes) Returns resource size information for given http request.
-- [BrowserContext.tracing.start_chunk()](https://playwright.dev/python/docs/api/class-tracing#tracing-start-chunk) - Start a new trace chunk.
-- [BrowserContext.tracing.stop_chunk()](https://playwright.dev/python/docs/api/class-tracing#tracing-stop-chunk) - Stops a new trace chunk.
+- [Page.route()](https://playwright.pro/python/docs/api/class-page#page-route) accepts new `times` option to specify how many times this route should be matched.
+- [Page.set_checked(selector: str, checked: bool)](https://playwright.pro/python/docs/api/class-page#page-set-checked) and [Locator.set_checked(selector: str, checked: bool)](https://playwright.pro/python/docs/api/class-locator#locator-set-checked) was introduced to set the checked state of a checkbox.
+- [Request.sizes()](https://playwright.pro/python/docs/api/class-request#request-sizes) Returns resource size information for given http request.
+- [BrowserContext.tracing.start_chunk()](https://playwright.pro/python/docs/api/class-tracing#tracing-start-chunk) - Start a new trace chunk.
+- [BrowserContext.tracing.stop_chunk()](https://playwright.pro/python/docs/api/class-tracing#tracing-stop-chunk) - Stops a new trace chunk.
 
 ### Browser Versions
 - Chromium 96.0.4641.0
@@ -780,7 +780,7 @@ context = browser.new_context()
 # Start tracing before creating / navigating a page.
 context.tracing.start(screenshots=True, snapshots=True)
 
-page.goto("https://playwright.dev")
+page.goto("https://playwright.pro")
 
 # Stop tracing and export it into a zip archive.
 context.tracing.stop(path = "trace.zip")
@@ -912,7 +912,7 @@ This version of Playwright was also tested against the following stable channels
 - **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is now on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) and [.NET bindings](https://github.com/microsoft/playwright-dotnet).
 - **Browser storage API**: New convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **New CSS selectors**: We heard your feedback for more flexible selectors and have revamped the selectors implementation. Playwright 1.7 introduces [new CSS extensions](./selectors.mdx) and there's more coming soon.
-- **New website**: The docs website at [playwright.dev](https://playwright.dev/) has been updated and is now built with [Docusaurus](https://v2.docusaurus.io/).
+- **New website**: The docs website at [playwright.pro](https://playwright.pro/) has been updated and is now built with [Docusaurus](https://v2.docusaurus.io/).
 - **Support for Apple Silicon**: Playwright browser binaries for WebKit and Chromium are now built for Apple Silicon.
 
 #### New APIs

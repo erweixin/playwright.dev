@@ -21,7 +21,7 @@ Playwright Test provides a `test` function to declare tests and [`expect` functi
 import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await page.goto('https://playwright.pro/');
   const name = await page.innerText('.navbar__title');
   expect(name).toBe('Playwright');
 });
@@ -34,7 +34,7 @@ test('basic test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await page.goto('https://playwright.pro/');
   const name = await page.innerText('.navbar__title');
   expect(name).toBe('Playwright');
 });
@@ -105,7 +105,7 @@ Declares a test.
 import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await page.goto('https://playwright.pro/');
   const name = await page.innerText('.navbar__title');
   expect(name).toBe('Playwright');
 });
@@ -118,7 +118,7 @@ test('basic test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await page.goto('https://playwright.pro/');
   const name = await page.innerText('.navbar__title');
   expect(name).toBe('Playwright');
 });

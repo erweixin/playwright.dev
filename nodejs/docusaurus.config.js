@@ -41,10 +41,10 @@ module.exports = {
   title: "Playwright 中文文档",
   tagline: "适用于现代 Web 应用程序的快速可靠的端到端测试框架",
   // Repo config for GitHub Pages
-  url: "https://playwright.dev",
+  url: "https://playwright.pro",
   baseUrl: "/",
   organizationName: "microsoft",
-  projectName: "playwright.dev",
+  projectName: "playwright.pro",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   scripts: ["/js/redirection.js"],

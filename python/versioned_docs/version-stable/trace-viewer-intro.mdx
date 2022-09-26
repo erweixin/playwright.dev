@@ -33,7 +33,7 @@ context = browser.new_context()
 # Start tracing before creating / navigating a page.
 context.tracing.start(screenshots=True, snapshots=True, sources=True)
 
-page.goto("https://playwright.dev")
+page.goto("https://playwright.pro")
 
 # Stop tracing and export it into a zip archive.
 context.tracing.stop(path = "trace.zip")
@@ -49,7 +49,7 @@ context = await browser.new_context()
 # Start tracing before creating / navigating a page.
 await context.tracing.start(screenshots=True, snapshots=True, sources=True)
 
-await page.goto("https://playwright.dev")
+await page.goto("https://playwright.pro")
 
 # Stop tracing and export it into a zip archive.
 await context.tracing.stop(path = "trace.zip")
@@ -62,7 +62,7 @@ This will record the trace and place it into the file named `trace.zip`.
 
 ## Opening the trace
 
-You can open the saved trace using Playwright CLI or in your browser on [`trace.playwright.dev`](https://trace.playwright.dev).
+You can open the saved trace using Playwright CLI or in your browser on [`trace.playwright.pro`](https://trace.playwright.pro).
 
 ```bash
 playwright show-trace trace.zip

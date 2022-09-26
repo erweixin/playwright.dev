@@ -29,7 +29,7 @@ await context.Tracing.StartAsync(new()
 });
 
 var page = context.NewPageAsync();
-await page.GotoAsync("https://playwright.dev");
+await page.GotoAsync("https://playwright.pro");
 
 // Stop tracing and export it into a zip archive.
 await context.Tracing.StopAsync(new()
@@ -42,7 +42,7 @@ This will record the trace and place it into the file named `trace.zip`.
 
 ## Opening the trace
 
-You can open the saved trace using Playwright CLI or in your browser on [`trace.playwright.dev`](https://trace.playwright.dev).
+You can open the saved trace using Playwright CLI or in your browser on [`trace.playwright.pro`](https://trace.playwright.pro).
 
 ```bash
 pwsh bin/Debug/netX/playwright.ps1 show-trace trace.zip

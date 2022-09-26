@@ -70,7 +70,7 @@ jobs:
           script: |
             await github.pulls.create({
               owner: 'microsoft',
-              repo: 'playwright.dev',
+              repo: 'playwright.pro',
               head: 'microsoft:${{ steps.prepare-branch.outputs.BRANCH_NAME }}',
               base: 'main',
               title: 'feat(roll): roll to ${{ github.event.inputs.version }} Playwright',

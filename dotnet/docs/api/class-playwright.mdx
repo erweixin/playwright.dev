@@ -28,7 +28,7 @@ class PlaywrightExample
 
 - [Playwright.APIRequest](/api/class-playwright.mdx#playwright-request)
 - [Playwright.Chromium](/api/class-playwright.mdx#playwright-chromium)
-- [Playwright.Devices](/api/class-playwright.mdx#playwright-devices)
+- [playwright.devices](/api/class-playwright.mdx#playwright-devices)
 - [Playwright.Firefox](/api/class-playwright.mdx#playwright-firefox)
 - [Playwright.Selectors](/api/class-playwright.mdx#playwright-selectors)
 - [Playwright.Webkit](/api/class-playwright.mdx#playwright-webkit)
@@ -49,7 +49,7 @@ Exposes API that can be used for the Web API testing.
 
 This object can be used to launch or connect to Chromium, returning instances of [Browser].
 
-## Playwright.Devices {#playwright-devices}
+## playwright.devices {#playwright-devices}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.8</font>
 
@@ -67,7 +67,7 @@ class PlaywrightExample
     {
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Webkit.LaunchAsync();
-        await using var context = await browser.NewContextAsync(playwright.Devices["iPhone 6"]);
+        await using var context = await browser.NewContextAsync(playwright.devices["iPhone 6"]);
 
         var page = await context.NewPageAsync();
         await page.GotoAsync("https://www.theverge.com");

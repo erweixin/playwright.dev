@@ -161,7 +161,7 @@ export function Ambassadors(): JSX.Element {
           name='Are you the next Ambassador?'
           city=''
           country=''
-          imageUrl='https://playwright.dev/img/playwright-logo.svg'
+          imageUrl='https://playwright.pro/img/playwright-logo.svg'
         ></ProfileCard>
       </a>
     </div>

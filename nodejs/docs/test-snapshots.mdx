@@ -22,7 +22,7 @@ Playwright Test includes the ability to produce and visually compare screenshots
 import { test, expect } from '@playwright/test';
 
 test('example test', async ({ page }) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   await expect(page).toHaveScreenshot();
 });
 ```
@@ -35,7 +35,7 @@ test('example test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('example test', async ({ page }) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   await expect(page).toHaveScreenshot();
 });
 ```
@@ -122,7 +122,7 @@ Playwright Test uses the [pixelmatch](https://github.com/mapbox/pixelmatch) libr
 import { test, expect } from '@playwright/test';
 
 test('example test', async ({ page }) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
 });
 ```
@@ -135,7 +135,7 @@ test('example test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('example test', async ({ page }) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
 });
 ```
@@ -198,7 +198,7 @@ Here we compare text content against the reference.
 import { test, expect } from '@playwright/test';
 
 test('example test', async ({ page }) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   expect(await page.textContent('.hero__title')).toMatchSnapshot('hero.txt');
 });
 ```
@@ -211,7 +211,7 @@ test('example test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('example test', async ({ page }) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   expect(await page.textContent('.hero__title')).toMatchSnapshot('hero.txt');
 });
 ```

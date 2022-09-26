@@ -5,7 +5,7 @@ title: "Trace Viewer"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Playwright Trace Viewer is a GUI tool that helps exploring recorded Playwright traces after the script ran. Open traces [locally](#viewing-the-trace) or in your browser on [`trace.playwright.dev`](https://trace.playwright.dev).
+Playwright Trace Viewer is a GUI tool that helps exploring recorded Playwright traces after the script ran. Open traces [locally](#viewing-the-trace) or in your browser on [`trace.playwright.pro`](https://trace.playwright.pro).
 
 <img width="1212" alt="Playwright Trace Viewer" src="https://user-images.githubusercontent.com/883973/120585896-6a1bca80-c3e7-11eb-951a-bd84002480f5.png"></img>
 
@@ -63,7 +63,7 @@ const context = await browser.newContext();
 await context.tracing.start({ screenshots: true, snapshots: true });
 
 const page = await context.newPage();
-await page.goto('https://playwright.dev');
+await page.goto('https://playwright.pro');
 
 // Stop tracing and export it into a zip archive.
 await context.tracing.stop({ path: 'trace.zip' });
@@ -84,7 +84,7 @@ If you are not using Playwright Test, use the [browserContext.tracing](/api/clas
 
 ## Viewing the trace
 
-You can open the saved trace using Playwright CLI or in your browser on [`trace.playwright.dev`](https://trace.playwright.dev).
+You can open the saved trace using Playwright CLI or in your browser on [`trace.playwright.pro`](https://trace.playwright.pro).
 
 ```bash
 npx playwright show-trace trace.zip
@@ -144,20 +144,20 @@ You can open remote traces using it's URL. They could be generated in a CI run a
 npx playwright show-trace https://example.com/trace.zip
 ```
 
-## Using [trace.playwright.dev](https://trace.playwright.dev)
+## Using [trace.playwright.pro](https://trace.playwright.pro)
 
-[trace.playwright.dev](https://trace.playwright.dev) is a statically hosted variant of the Trace Viewer. 
+[trace.playwright.pro](https://trace.playwright.pro) is a statically hosted variant of the Trace Viewer. 
 
 ### Viewing local traces
 
-When navigating to [trace.playwright.dev](https://trace.playwright.dev), you can upload trace files using drag and drop.
+When navigating to [trace.playwright.pro](https://trace.playwright.pro), you can upload trace files using drag and drop.
 
 ### Remote traces
 
 You can also pass the URL of your uploaded trace (e.g. inside your CI) from some accessible storage as a parameter. CORS (Cross-Origin Resource Sharing) rules might apply.
 
 ```txt
-https://trace.playwright.dev/?trace=https://demo.playwright.dev/reports/todomvc/data/cb0fa77ebd9487a5c899f3ae65a7ffdbac681182.zip
+https://trace.playwright.pro/?trace=https://demo.playwright.pro/reports/todomvc/data/cb0fa77ebd9487a5c899f3ae65a7ffdbac681182.zip
 ```
 
 

@@ -14,7 +14,7 @@ const browser = await chromium.launch();
 const context = await browser.newContext();
 await context.tracing.start({ screenshots: true, snapshots: true });
 const page = await context.newPage();
-await page.goto('https://playwright.dev');
+await page.goto('https://playwright.pro');
 await context.tracing.stop({ path: 'trace.zip' });
 ```
 
@@ -43,7 +43,7 @@ Start tracing.
 ```js
 await context.tracing.start({ screenshots: true, snapshots: true });
 const page = await context.newPage();
-await page.goto('https://playwright.dev');
+await page.goto('https://playwright.pro');
 await context.tracing.stop({ path: 'trace.zip' });
 ```
 
@@ -60,7 +60,7 @@ Start a new trace chunk. If you'd like to record multiple traces on the same [Br
 ```js
 await context.tracing.start({ screenshots: true, snapshots: true });
 const page = await context.newPage();
-await page.goto('https://playwright.dev');
+await page.goto('https://playwright.pro');
 
 await context.tracing.startChunk();
 await page.locator('text=Get Started').click();

@@ -41,10 +41,10 @@ module.exports = {
   title: "Playwright Java",
   tagline: "Fast and reliable end-to-end testing for modern web apps",
   // Repo config for GitHub Pages
-  url: "https://playwright.dev",
+  url: "https://playwright.pro",
   baseUrl: "/java/",
   organizationName: "microsoft",
-  projectName: "playwright.dev",
+  projectName: "playwright.pro",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   scripts: ["/java/js/redirection.js"],

@@ -18,7 +18,7 @@ await context.Tracing.StartAsync(new()
   Snapshots: true
 });
 var page = context.NewPageAsync();
-await page.GotoAsync("https://playwright.dev");
+await page.GotoAsync("https://playwright.pro");
 await context.Tracing.StopAsync(new()
 {
   Path: "trace.zip"
@@ -56,7 +56,7 @@ await context.Tracing.StartAsync(new()
   Snapshots: true
 });
 var page = context.NewPageAsync();
-await page.GotoAsync("https://playwright.dev");
+await page.GotoAsync("https://playwright.pro");
 await context.Tracing.StopAsync(new()
 {
   Path: "trace.zip"
@@ -82,7 +82,7 @@ await context.Tracing.StartAsync(new()
   Snapshots: true
 });
 var page = context.NewPageAsync();
-await page.GotoAsync("https://playwright.dev");
+await page.GotoAsync("https://playwright.pro");
 
 await context.Tracing.StartChunkAsync();
 await page.ClickAsync("text=Get Started");

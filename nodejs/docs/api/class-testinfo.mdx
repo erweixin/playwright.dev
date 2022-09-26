@@ -109,7 +109,7 @@ For example, you can attach a screenshot to the test:
 import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }, testInfo) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   const screenshot = await page.screenshot();
   await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 });
@@ -122,7 +122,7 @@ test('basic test', async ({ page }, testInfo) => {
 const { test, expect } = require('@playwright/test');
 
 test('basic test', async ({ page }, testInfo) => {
-  await page.goto('https://playwright.dev');
+  await page.goto('https://playwright.pro');
   const screenshot = await page.screenshot();
   await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
 });

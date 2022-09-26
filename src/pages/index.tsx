@@ -19,11 +19,11 @@ const features = [
       </p>
       <p>
         <b>跨语言。</b> 在 <a
-        href="https://playwright.dev/docs/intro">TypeScript</a>, <a
-        href="https://playwright.dev/docs/intro">JavaScript</a>, <a
-        href="https://playwright.dev/python/docs/intro">Python</a>, <a
-        href="https://playwright.dev/dotnet/docs/intro">.NET</a>, <a
-        href="https://playwright.dev/java/docs/intro">Java</a> 中使用 Playwright API
+        href="https://playwright.pro/docs/intro">TypeScript</a>, <a
+        href="https://playwright.pro/docs/intro">JavaScript</a>, <a
+        href="https://playwright.pro/python/docs/intro">Python</a>, <a
+        href="https://playwright.pro/dotnet/docs/intro">.NET</a>, <a
+        href="https://playwright.pro/java/docs/intro">Java</a> 中使用 Playwright API
       </p>
       <p>
         <b>测试移动端 Web 。</b> 对 Android 和 Mobile Safari 的 Google Chrome 原生移动端模拟。与你的移动端和云端应用采用相同的渲染引擎。
