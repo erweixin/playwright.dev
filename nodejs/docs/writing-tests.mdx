@@ -32,7 +32,7 @@ Take a look at the example test included when installing Playwright to see how t
 import { test, expect } from '@playwright/test';
 
 test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
-  await page.goto('https://playwright.pro/');
+  await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
@@ -59,7 +59,7 @@ test('homepage has Playwright in title and get started link linking to the intro
 const { test, expect } = require('@playwright/test');
 
 test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
-  await page.goto('https://playwright.pro/');
+  await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
@@ -139,12 +139,12 @@ import { test, expect } from "@playwright/test";
 test.describe("navigation", () => {
   test.beforeEach(async ({ page }) => {
     // Go to the starting url before each test.
-    await page.goto("https://playwright.pro/");
+    await page.goto("https://playwright.dev/");
   });
 
   test("main navigation", async ({ page }) => {
     // Assertions use the expect API.
-    await expect(page).toHaveURL("https://playwright.pro/");
+    await expect(page).toHaveURL("https://playwright.dev/");
   });
 });
 ```
@@ -159,12 +159,12 @@ const { test, expect } = require("@playwright/test");
 test.describe("navigation", () => {
   test.beforeEach(async ({ page }) => {
     // Go to the starting url before each test.
-    await page.goto("https://playwright.pro/");
+    await page.goto("https://playwright.dev/");
   });
 
   test("main navigation", async ({ page }) => {
     // Assertions use the expect API.
-    await expect(page).toHaveURL("https://playwright.pro/");
+    await expect(page).toHaveURL("https://playwright.dev/");
   });
 });
 ```

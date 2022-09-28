@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Page Object Model is a common pattern that introduces abstractions over web app pages to simplify interactions with them in multiple tests. It is best explained by an example.
 
-We will create a `PlaywrightDevPage` helper class to encapsulate common operations on the `playwright.pro` page. Internally, it will use the `page` object.
+We will create a `PlaywrightDevPage` helper class to encapsulate common operations on the `playwright.dev` page. Internally, it will use the `page` object.
 
 <Tabs
   groupId="js-flavor"
@@ -39,7 +39,7 @@ export class PlaywrightDevPage {
   }
 
   async goto() {
-    await this.page.goto('https://playwright.pro');
+    await this.page.goto('https://playwright.dev');
   }
 
   async getStarted() {
@@ -75,7 +75,7 @@ exports.PlaywrightDevPage = class PlaywrightDevPage {
   }
 
   async goto() {
-    await this.page.goto('https://playwright.pro');
+    await this.page.goto('https://playwright.dev');
   }
 
   async getStarted() {
