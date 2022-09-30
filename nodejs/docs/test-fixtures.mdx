@@ -25,7 +25,7 @@ You have already used test fixtures in your first test.
 import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.pro/');
+  await page.goto('https://playwright.dev/');
   const title = page.locator('.navbar__inner .navbar__title');
   await expect(title).toHaveText('Playwright');
 });
@@ -38,7 +38,7 @@ test('basic test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.pro/');
+  await page.goto('https://playwright.dev/');
   const title = page.locator('.navbar__inner .navbar__title');
   await expect(title).toHaveText('Playwright');
 });
@@ -374,7 +374,7 @@ Notice that in this example, the `page` fixture is able to depend on other built
 ```js
 // example.spec.ts
 
-test.use({ baseURL: 'https://playwright.pro' });
+test.use({ baseURL: 'https://playwright.dev' });
 ```
 
 </TabItem>
@@ -383,7 +383,7 @@ test.use({ baseURL: 'https://playwright.pro' });
 ```js
 // example.spec.js
 
-test.use({ baseURL: 'https://playwright.pro' });
+test.use({ baseURL: 'https://playwright.dev' });
 ```
 
 </TabItem>
