@@ -16,7 +16,7 @@ context.tracing().start(new Tracing.StartOptions()
   .setScreenshots(true)
   .setSnapshots(true));
 Page page = context.newPage();
-page.navigate("https://playwright.pro");
+page.navigate("https://playwright.dev");
 context.tracing().stop(new Tracing.StopOptions()
   .setPath(Paths.get("trace.zip")));
 ```
@@ -48,7 +48,7 @@ context.tracing().start(new Tracing.StartOptions()
   .setScreenshots(true)
   .setSnapshots(true));
 Page page = context.newPage();
-page.navigate("https://playwright.pro");
+page.navigate("https://playwright.dev");
 context.tracing().stop(new Tracing.StopOptions()
   .setPath(Paths.get("trace.zip")));
 ```
@@ -68,7 +68,7 @@ context.tracing().start(new Tracing.StartOptions()
   .setScreenshots(true)
   .setSnapshots(true));
 Page page = context.newPage();
-page.navigate("https://playwright.pro");
+page.navigate("https://playwright.dev");
 
 context.tracing().startChunk();
 page.locator("text=Get Started").click();
