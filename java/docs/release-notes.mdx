@@ -4,6 +4,45 @@ title: "Release notes"
 toc_max_heading_level: 2
 ---
 
+## Version 1.27
+
+### Locators
+
+With these new APIs writing locators is a joy:
+- [Page.getByText(text[, options])](/api/class-page.mdx#page-get-by-text) to locate by text content.
+- [Page.getByRole(role[, options])](/api/class-page.mdx#page-get-by-role) to locate by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.getByLabel(text[, options])](/api/class-page.mdx#page-get-by-label) to locate a form control by associated label's text.
+- [Page.getByPlaceholder(text[, options])](/api/class-page.mdx#page-get-by-placeholder) to locate an input by placeholder.
+- [Page.getByAltText(text[, options])](/api/class-page.mdx#page-get-by-alt-text) to locate an element, usually image, by its text alternative.
+- [Page.getByTitle(text[, options])](/api/class-page.mdx#page-get-by-title) to locate an element by its title.
+
+```java
+page.getByLabel("User Name").fill("John");
+
+page.getByLabel("Password").fill("secret-password");
+
+page.getByRole("button", new Page.GetByRoleOptions().setName("Sign in")).click();
+
+assertThat(page.getByText("Welcome, John!")).isVisible();
+```
+
+All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
+
+### Other highlights
+- As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
+
+### Behavior Changes
+- [assertThat(locator).hasAttribute(name, value[, options])](/test-assertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+
+### Browser Versions
+* Chromium 107.0.5304.18
+* Mozilla Firefox 105.0.1
+* WebKit 16.0
+
+This version was also tested against the following stable channels:
+* Google Chrome 106
+* Microsoft Edge 106
+
 ## Version 1.26
 
 ### Assertions
@@ -66,7 +105,7 @@ Playwright now supports Debian 11 Bullseye on x86_64 for Chromium, Firefox and W
 Linux support looks like this:
 
 |          | Ubuntu 18.04 | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11
-| :--- | :---: | :---: | :---: | :---: | 
+| :--- | :---: | :---: | :---: | :---: |
 | Chromium | ✅ | ✅ | ✅ | ✅ |
 | WebKit | ✅ | ✅ | ✅ | ✅ |
 | Firefox | ✅ | ✅ | ✅ | ✅ |
@@ -341,9 +380,9 @@ Read more at [our documentation](./api/class-framelocator).
 
 ### Trace Viewer Update
 
-Playwright Trace Viewer is now **available online** at https://trace.playwright.pro! Just drag-and-drop your `trace.zip` file to inspect its contents.
+Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
-> **NOTE**: trace files are not uploaded anywhere; [trace.playwright.pro](https://trace.playwright.pro) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
+> **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
 - Playwright Test traces now include sources by default (these could be turned off with tracing option)
 - Trace Viewer now shows test name
 - New trace metadata tab with browser details
@@ -403,29 +442,29 @@ This version of Playwright was also tested against the following stable channels
 
 ### 🖱️ Mouse Wheel
 
-By using [`Mouse.wheel`](https://playwright.pro/java/docs/api/class-mouse#mouse-wheel) you are now able to scroll vertically or horizontally.
+By using [`Mouse.wheel`](https://playwright.dev/java/docs/api/class-mouse#mouse-wheel) you are now able to scroll vertically or horizontally.
 
 ### 📜 New Headers API
 
 Previously it was not possible to get multiple header values of a response. This is now possible and additional helper functions are available:
-- [Request.allHeaders()](https://playwright.pro/java/docs/api/class-request#request-all-headers)
-- [Request.headersArray()](https://playwright.pro/java/docs/api/class-request#request-headers-array)
-- [Request.headerValue(name: string)](https://playwright.pro/java/docs/api/class-request#request-header-value)
-- [Response.allHeaders()](https://playwright.pro/java/docs/api/class-response#response-all-headers)
-- [Response.headersArray()](https://playwright.pro/java/docs/api/class-response#response-headers-array)
-- [Response.headerValue(name: string)](https://playwright.pro/java/docs/api/class-response#response-header-value)
-- [Response.headerValues(name: string)](https://playwright.pro/java/docs/api/class-response#response-header-values)
+- [Request.allHeaders()](https://playwright.dev/java/docs/api/class-request#request-all-headers)
+- [Request.headersArray()](https://playwright.dev/java/docs/api/class-request#request-headers-array)
+- [Request.headerValue(name: string)](https://playwright.dev/java/docs/api/class-request#request-header-value)
+- [Response.allHeaders()](https://playwright.dev/java/docs/api/class-response#response-all-headers)
+- [Response.headersArray()](https://playwright.dev/java/docs/api/class-response#response-headers-array)
+- [Response.headerValue(name: string)](https://playwright.dev/java/docs/api/class-response#response-header-value)
+- [Response.headerValues(name: string)](https://playwright.dev/java/docs/api/class-response#response-header-values)
 
 ### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [context options](https://playwright.pro/java/docs/api/class-browser#browser-new-context-option-color-scheme) or calling [Page.emulateMedia()](https://playwright.pro/java/docs/api/class-page#page-emulate-media).
+Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [context options](https://playwright.dev/java/docs/api/class-browser#browser-new-context-option-color-scheme) or calling [Page.emulateMedia()](https://playwright.dev/java/docs/api/class-page#page-emulate-media).
 
 ### New APIs
-- [Page.route()](https://playwright.pro/java/docs/api/class-page#page-route) accepts new `times` option to specify how many times this route should be matched.
-- [Page.setChecked(selector: string, checked: boolean)](https://playwright.pro/java/docs/api/class-page#page-set-checked) and [Locator.setChecked(selector: string, checked: boolean)](https://playwright.pro/java/docs/api/class-locator#locator-set-checked) was introduced to set the checked state of a checkbox.
-- [Request.sizes()](https://playwright.pro/java/docs/api/class-request#request-sizes) Returns resource size information for given http request.
-- [Tracing.startChunk()](https://playwright.pro/java/docs/api/class-tracing#tracing-start-chunk) - Start a new trace chunk.
-- [Tracing.stopChunk()](https://playwright.pro/java/docs/api/class-tracing#tracing-stop-chunk) - Stops a new trace chunk.
+- [Page.route()](https://playwright.dev/java/docs/api/class-page#page-route) accepts new `times` option to specify how many times this route should be matched.
+- [Page.setChecked(selector: string, checked: boolean)](https://playwright.dev/java/docs/api/class-page#page-set-checked) and [Locator.setChecked(selector: string, checked: boolean)](https://playwright.dev/java/docs/api/class-locator#locator-set-checked) was introduced to set the checked state of a checkbox.
+- [Request.sizes()](https://playwright.dev/java/docs/api/class-request#request-sizes) Returns resource size information for given http request.
+- [Tracing.startChunk()](https://playwright.dev/java/docs/api/class-tracing#tracing-start-chunk) - Start a new trace chunk.
+- [Tracing.stopChunk()](https://playwright.dev/java/docs/api/class-tracing#tracing-stop-chunk) - Stops a new trace chunk.
 
 ### Browser Versions
 - Chromium 96.0.4641.0
@@ -538,7 +577,7 @@ context.tracing.start(new Tracing.StartOptions()
   .setSnapshots(true);
 
 Page page = context.newPage();
-page.goto("https://playwright.pro");
+page.goto("https://playwright.dev");
 
 // Stop tracing and export it into a zip archive.
 context.tracing.stop(new Tracing.StopOptions()
@@ -671,7 +710,7 @@ This version of Playwright was also tested against the following stable channels
 - **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is now on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) and [.NET bindings](https://github.com/microsoft/playwright-dotnet).
 - **Browser storage API**: New convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **New CSS selectors**: We heard your feedback for more flexible selectors and have revamped the selectors implementation. Playwright 1.7 introduces [new CSS extensions](./selectors.mdx) and there's more coming soon.
-- **New website**: The docs website at [playwright.pro](https://playwright.pro/) has been updated and is now built with [Docusaurus](https://v2.docusaurus.io/).
+- **New website**: The docs website at [playwright.dev](https://playwright.dev/) has been updated and is now built with [Docusaurus](https://v2.docusaurus.io/).
 - **Support for Apple Silicon**: Playwright browser binaries for WebKit and Chromium are now built for Apple Silicon.
 
 #### New APIs
