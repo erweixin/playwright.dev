@@ -30,7 +30,7 @@ This guide describes migration to [Playwright Library](./library) and [Playwrigh
 | `await browser.createIncognitoBrowserContext(...)` | `await browser.newContext(...)`             |
 | `await page.setViewport(...)`                      | `await page.setViewportSize(...)`           |
 | `await page.waitForXPath(XPathSelector)`           | `await page.waitForSelector(XPathSelector)` |
-| `await page.waitForNetworkIdle(...)`               | `await page.waitForLoadState({ state: 'networkidle' }})` |
+| `await page.waitForNetworkIdle(...)`               | `await page.waitForLoadState({ state: 'networkidle' })` |
 | `await page.$eval(...)`                            | [Assertions](./test-assertions) can often be used instead to verify text, attribute, class... |
 | `await page.$(...)`                                | Discouraged, use [Locators](./api/class-locator) instead |
 | `await page.$x(xpath_selector)`                    | Discouraged, use [Locators](./api/class-locator) instead |
@@ -114,7 +114,7 @@ describe('Playwright homepage', () => {
   });
 
   it('contains hero title', async () => {
-    await page.goto('https://playwright.pro/');
+    await page.goto('https://playwright.dev/');
     await page.waitForSelector('.hero__title');
     const text = await page.$eval('.hero__title', (e) => e.textContent);
     expect(text).toContain('Playwright enables reliable end-to-end testing'); // 5
@@ -131,7 +131,7 @@ import { test, expect } from '@playwright/test'; // 1
 
 test.describe('Playwright homepage', () => {
   test('contains hero title', async ({ page }) => { // 2, 3
-    await page.goto('https://playwright.pro/');
+    await page.goto('https://playwright.dev/');
     const titleLocator = page.locator('.hero__title'); // 4
     await expect(titleLocator).toContainText( // 5
       'Playwright enables reliable end-to-end testing'

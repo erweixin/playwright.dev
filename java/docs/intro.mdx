@@ -32,7 +32,7 @@ public class Example {
     try (Playwright playwright = Playwright.create()) {
       Browser browser = playwright.chromium().launch();
       Page page = browser.newPage();
-      page.navigate("http://playwright.pro");
+      page.navigate("http://playwright.dev");
       System.out.println(page.title());
     }
   }
@@ -61,7 +61,7 @@ public class Example {
     <dependency>
       <groupId>com.microsoft.playwright</groupId>
       <artifactId>playwright</artifactId>
-      <version>1.27.0</version>
+      <version>1.28.0</version>
     </dependency>
   </dependencies>
   <build>
