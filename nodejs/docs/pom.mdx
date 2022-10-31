@@ -13,7 +13,7 @@ Page objects **simplify authoring** by creating a higher-level API which suits y
 
 ## Implementation
 
-We will create a `PlaywrightDevPage` helper class to encapsulate common operations on the `playwright.pro` page. Internally, it will use the `page` object.
+We will create a `PlaywrightDevPage` helper class to encapsulate common operations on the `playwright.dev` page. Internally, it will use the `page` object.
 
 <Tabs
   groupId="js-flavor"
@@ -46,7 +46,7 @@ export class PlaywrightDevPage {
   }
 
   async goto() {
-    await this.page.goto('https://playwright.pro');
+    await this.page.goto('https://playwright.dev');
   }
 
   async getStarted() {
@@ -82,7 +82,7 @@ exports.PlaywrightDevPage = class PlaywrightDevPage {
   }
 
   async goto() {
-    await this.page.goto('https://playwright.pro');
+    await this.page.goto('https://playwright.dev');
   }
 
   async getStarted() {
@@ -157,7 +157,7 @@ test('getting started should contain table of contents', async ({ page }) => {
     `How to run the example test`,
     `How to open the HTML test report`,
     `Write tests using web first assertions, page fixtures and locators`,
-    `Run single tests, multiple tests, headed mode`,
+    `Run single test, multiple tests, headed mode`,
     `Generate tests with Codegen`,
     `See a trace of your tests`
   ]);
@@ -189,7 +189,7 @@ test('getting started should contain table of contents', async ({ page }) => {
     `How to run the example test`,
     `How to open the HTML test report`,
     `Write tests using web first assertions, page fixtures and locators`,
-    `Run single tests, multiple tests, headed mode`,
+    `Run single test, multiple tests, headed mode`,
     `Generate tests with Codegen`,
     `See a trace of your tests`
   ]);
@@ -220,7 +220,7 @@ await expect(playwrightDev.tocList).toHaveText([
   `How to run the example test`,
   `How to open the HTML test report`,
   `Write tests using web first assertions, page fixtures and locators`,
-  `Run single tests, multiple tests, headed mode`,
+  `Run single test, multiple tests, headed mode`,
   `Generate tests with Codegen`,
   `See a trace of your tests`
 ]);
