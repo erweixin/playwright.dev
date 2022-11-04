@@ -1,54 +1,90 @@
 ---
-id: dialogs
-title: "Dialogs"
+id: running-tests
+title: "Running Tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Playwright can interact with the web page dialogs such as [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), [`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm), [`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) as well as [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) confirmation.
+Playwright tests can be run in a variety of ways. We recommend hooking it up to your favorite test runner, e.g. [JUnit](./test-runners.mdx) since it gives you the ability to run tests in parallel, run single test, etc.
 
-## alert(), confirm(), prompt() dialogs
+You can run a single test, a set of tests or all tests. Tests can be run on one browser or multiple browsers. By default tests are run in a headless manner meaning no browser window will be opened while running the tests and results will be seen in the terminal. If you prefer you can run your tests in headed mode by using the `launch(new BrowserType.LaunchOptions().setHeadless(false))` option.
 
-By default, dialogs are auto-dismissed by Playwright, so you don't have to handle them. However, you can register a dialog handler before the action that triggers the dialog to either [Dialog.accept([promptText])](/api/class-dialog.mdx#dialog-accept) or [Dialog.dismiss()](/api/class-dialog.mdx#dialog-dismiss) it.
-
-```java
-page.onDialog(dialog -> dialog.accept());
-page.getByRole("button").click();
-```
-
-:::note
-[Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) listener **must handle** the dialog. Otherwise your action will stall, be it [Locator.click([options])](/api/class-locator.mdx#locator-click) or something else. That's because dialogs in Web are modals and therefore block further page execution until they are handled.
-:::
-
-As a result, the following snippet will never resolve:
-
-:::warning
-WRONG!
-:::
+In [JUnit](https://junit.org/junit5/) you can initialize [Playwright] and [Browser] in [@BeforeAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeAll.html) method and destroy them in [@AfterAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/AfterAll.html). In the example below all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
 
 ```java
-page.onDialog(dialog -> System.out.println(dialog.message()));
-page.getByRole("button").click(); // Will hang here
+package org.example;
+
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TestExample {
+  // Shared between all tests in this class.
+  static Playwright playwright;
+  static Browser browser;
+
+  // New instance for each test method.
+  BrowserContext context;
+  Page page;
+
+  @BeforeAll
+  static void launchBrowser() {
+    playwright = Playwright.create();
+    browser = playwright.chromium().launch();
+  }
+
+  @AfterAll
+  static void closeBrowser() {
+    playwright.close();
+  }
+
+  @BeforeEach
+  void createContextAndPage() {
+    context = browser.newContext();
+    page = context.newPage();
+  }
+
+  @AfterEach
+  void closeContext() {
+    context.close();
+  }
+
+  @Test
+  void shouldClickButton() {
+    page.navigate("data:text/html,<script>var result;</script><button onclick='result=\"Clicked\"'>Go</button>");
+    page.locator("button").click();
+    assertEquals("Clicked", page.evaluate("result"));
+  }
+
+  @Test
+  void shouldCheckTheBox() {
+    page.setContent("<input id='checkbox' type='checkbox'></input>");
+    page.locator("input").check();
+    assertTrue((Boolean) page.evaluate("() => window['checkbox'].checked"));
+  }
+
+  @Test
+  void shouldSearchWiki() {
+    page.navigate("https://www.wikipedia.org/");
+    page.locator("input[name=\"search\"]").click();
+    page.locator("input[name=\"search\"]").fill("playwright");
+    page.locator("input[name=\"search\"]").press("Enter");
+    assertEquals("https://en.wikipedia.org/wiki/Playwright", page.url());
+  }
+}
 ```
 
-:::note
-If there is no listener for [Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog), all dialogs are automatically dismissed.
-:::
+See [here](./test-runners.mdx) for further details on how to run tests in parallel etc..
 
-## beforeunload dialog
-
-When [Page.close([options])](/api/class-page.mdx#page-close) is invoked with the truthy `runBeforeUnload` value, the page runs its unload handlers. This is the only case when [Page.close([options])](/api/class-page.mdx#page-close) does not wait for the page to actually close, because it might be that the page stays open in the end of the operation.
-
-You can register a dialog handler to handle the `beforeunload` dialog yourself:
-
-```java
-page.onDialog(dialog -> {
-  assertEquals("beforeunload", dialog.type());
-  dialog.dismiss();
-});
-page.close(new Page.CloseOptions().setRunBeforeUnload(true));
-```
-
+## What's Next
+- [Debugging tests](./debug.mdx)
+- [Generate tests with Codegen](./codegen.mdx)
+- [See a trace of your tests](./trace-viewer-intro.mdx)
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
 [APIRequestContext]: /api/class-apirequestcontext.mdx "APIRequestContext"

@@ -24,7 +24,7 @@ browser = chromium.launch()
 context = browser.new_context()
 context.tracing.start(screenshots=True, snapshots=True)
 page = context.new_page()
-page.goto("https://playwright.pro")
+page.goto("https://playwright.dev")
 context.tracing.stop(path = "trace.zip")
 ```
 
@@ -36,7 +36,7 @@ browser = await chromium.launch()
 context = await browser.new_context()
 await context.tracing.start(screenshots=True, snapshots=True)
 page = await context.new_page()
-await page.goto("https://playwright.pro")
+await page.goto("https://playwright.dev")
 await context.tracing.stop(path = "trace.zip")
 ```
 
@@ -77,7 +77,7 @@ Start tracing.
 ```py
 context.tracing.start(name="trace", screenshots=True, snapshots=True)
 page = context.new_page()
-page.goto("https://playwright.pro")
+page.goto("https://playwright.dev")
 context.tracing.stop(path = "trace.zip")
 ```
 
@@ -87,7 +87,7 @@ context.tracing.stop(path = "trace.zip")
 ```py
 await context.tracing.start(name="trace", screenshots=True, snapshots=True)
 page = await context.new_page()
-await page.goto("https://playwright.pro")
+await page.goto("https://playwright.dev")
 await context.tracing.stop(path = "trace.zip")
 ```
 
@@ -116,10 +116,10 @@ Start a new trace chunk. If you'd like to record multiple traces on the same [Br
 ```py
 context.tracing.start(name="trace", screenshots=True, snapshots=True)
 page = context.new_page()
-page.goto("https://playwright.pro")
+page.goto("https://playwright.dev")
 
 context.tracing.start_chunk()
-page.locator("text=Get Started").click()
+page.get_by_text("Get Started").click()
 # Everything between start_chunk and stop_chunk will be recorded in the trace.
 context.tracing.stop_chunk(path = "trace1.zip")
 
@@ -135,10 +135,10 @@ context.tracing.stop_chunk(path = "trace2.zip")
 ```py
 await context.tracing.start(name="trace", screenshots=True, snapshots=True)
 page = await context.new_page()
-await page.goto("https://playwright.pro")
+await page.goto("https://playwright.dev")
 
 await context.tracing.start_chunk()
-await page.locator("text=Get Started").click()
+await page.get_by_text("Get Started").click()
 # Everything between start_chunk and stop_chunk will be recorded in the trace.
 await context.tracing.stop_chunk(path = "trace1.zip")
 

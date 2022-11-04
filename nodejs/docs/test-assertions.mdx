@@ -60,7 +60,7 @@ expect(test.info().errors).toHaveLength(0);
 You can specify a custom error message as a second argument to the `expect` function, for example:
 
 ```js
-await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
+await expect(page.getByText('Name'), 'should be logged in').toBeVisible();
 ```
 
 The error would look like this:
@@ -70,12 +70,12 @@ The error would look like this:
 
     Call log:
       - expect.toBeVisible with timeout 5000ms
-      - waiting for selector "text=Name"
+      - waiting for "getByText('Name')"
 
 
       2 |
       3 | test('example test', async({ page }) => {
-    > 4 |   await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
+    > 4 |   await expect(page.getByText('Name'), 'should be logged in').toBeVisible();
         |                                                                  ^
       5 | });
       6 |
@@ -173,7 +173,7 @@ await expect(locator).not.toContainText('error');
 Ensures the [Locator] points to a checked input.
 
 ```js
-const locator = page.locator('.subscribe');
+const locator = page.getByLabel('Subscribe to newsletter');
 await expect(locator).toBeChecked();
 ```
 
@@ -204,7 +204,7 @@ await expect(locator).toBeDisabled();
 Ensures the [Locator] points to an editable element.
 
 ```js
-const locator = page.locator('input');
+const locator = page.getByRole('textbox');
 await expect(locator).toBeEditable();
 ```
 
@@ -250,7 +250,7 @@ await expect(locator).toBeEnabled();
 Ensures the [Locator] points to a focused DOM node.
 
 ```js
-const locator = page.locator('input');
+const locator = page.getByRole('textbox');
 await expect(locator).toBeFocused();
 ```
 
@@ -278,7 +278,7 @@ await expect(locator).toBeHidden();
   - `visible?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-visible"/> &#60;[boolean]&#62; <font size="2">Added in: v1.26</font><a href="#locator-assertions-to-be-visible-option-visible" class="list-anchor">#</a>
 - returns:<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-return"/> &#60;[Promise]<[void]>&#62;<a href="#locator-assertions-to-be-visible-return" class="list-anchor">#</a>
 
-Ensures that [Locator] points to an [attached](./actionability.mdx#visible) and [visible](./actionability.mdx#visible) DOM node.
+Ensures that [Locator] points to an [attached](./actionability.mdx#attached) and [visible](./actionability.mdx#visible) DOM node.
 
 ```js
 const locator = page.locator('.my-element');
@@ -410,7 +410,7 @@ await expect(list).toHaveCount(3);
 Ensures the [Locator] resolves to an element with the given computed CSS style.
 
 ```js
-const locator = page.locator('button');
+const locator = page.getByRole('button');
 await expect(locator).toHaveCSS('display', 'flex');
 ```
 
@@ -426,7 +426,7 @@ await expect(locator).toHaveCSS('display', 'flex');
 Ensures the [Locator] points to an element with the given DOM Node ID.
 
 ```js
-const locator = page.locator('input');
+const locator = page.getByRole('textbox');
 await expect(locator).toHaveId('lastname');
 ```
 
@@ -463,7 +463,7 @@ await expect(locator).toHaveJSProperty('loaded', true);
   - `maxDiffPixelRatio?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-max-diff-pixel-ratio"/> &#60;[number]&#62; An acceptable ratio of pixels that are different to the total amount of pixels, between `0` and `1`. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#locator-assertions-to-have-screenshot-1-option-max-diff-pixel-ratio" class="list-anchor">#</a>
   - `maxDiffPixels?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-max-diff-pixels"/> &#60;[number]&#62; An acceptable amount of pixels that could be different. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#locator-assertions-to-have-screenshot-1-option-max-diff-pixels" class="list-anchor">#</a>
   - `omitBackground?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-omit-background"/> &#60;[boolean]&#62; Hides default white background and allows capturing screenshots with transparency. Not applicable to `jpeg` images. Defaults to `false`.<a href="#locator-assertions-to-have-screenshot-1-option-omit-background" class="list-anchor">#</a>
-  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenhots of high-dpi devices will be twice as large or even larger.<a href="#locator-assertions-to-have-screenshot-1-option-scale" class="list-anchor">#</a>
+  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenshots of high-dpi devices will be twice as large or even larger.<a href="#locator-assertions-to-have-screenshot-1-option-scale" class="list-anchor">#</a>
 
     Defaults to `"css"`.
   - `threshold?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-threshold"/> &#60;[number]&#62; An acceptable perceived color difference in the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) between the same pixel in compared images, between zero (strict) and one (lax), default is configurable with `TestConfig.expect`. Defaults to `0.2`.<a href="#locator-assertions-to-have-screenshot-1-option-threshold" class="list-anchor">#</a>
@@ -473,7 +473,7 @@ await expect(locator).toHaveJSProperty('loaded', true);
 This function will wait until two consecutive locator screenshots yield the same result, and then compare the last screenshot with the expectation.
 
 ```js
-const locator = page.locator('button');
+const locator = page.getByRole('button');
 await expect(locator).toHaveScreenshot('image.png');
 ```
 
@@ -492,7 +492,7 @@ await expect(locator).toHaveScreenshot('image.png');
   - `maxDiffPixelRatio?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-max-diff-pixel-ratio"/> &#60;[number]&#62; An acceptable ratio of pixels that are different to the total amount of pixels, between `0` and `1`. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#locator-assertions-to-have-screenshot-2-option-max-diff-pixel-ratio" class="list-anchor">#</a>
   - `maxDiffPixels?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-max-diff-pixels"/> &#60;[number]&#62; An acceptable amount of pixels that could be different. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#locator-assertions-to-have-screenshot-2-option-max-diff-pixels" class="list-anchor">#</a>
   - `omitBackground?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-omit-background"/> &#60;[boolean]&#62; Hides default white background and allows capturing screenshots with transparency. Not applicable to `jpeg` images. Defaults to `false`.<a href="#locator-assertions-to-have-screenshot-2-option-omit-background" class="list-anchor">#</a>
-  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenhots of high-dpi devices will be twice as large or even larger.<a href="#locator-assertions-to-have-screenshot-2-option-scale" class="list-anchor">#</a>
+  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenshots of high-dpi devices will be twice as large or even larger.<a href="#locator-assertions-to-have-screenshot-2-option-scale" class="list-anchor">#</a>
 
     Defaults to `"css"`.
   - `threshold?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-threshold"/> &#60;[number]&#62; An acceptable perceived color difference in the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) between the same pixel in compared images, between zero (strict) and one (lax), default is configurable with `TestConfig.expect`. Defaults to `0.2`.<a href="#locator-assertions-to-have-screenshot-2-option-threshold" class="list-anchor">#</a>
@@ -502,7 +502,7 @@ await expect(locator).toHaveScreenshot('image.png');
 This function will wait until two consecutive locator screenshots yield the same result, and then compare the last screenshot with the expectation.
 
 ```js
-const locator = page.locator('button');
+const locator = page.getByRole('button');
 await expect(locator).toHaveScreenshot();
 ```
 
@@ -633,7 +633,7 @@ await expect(page).not.toHaveURL('error');
   - `maxDiffPixelRatio?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-1-option-max-diff-pixel-ratio"/> &#60;[number]&#62; An acceptable ratio of pixels that are different to the total amount of pixels, between `0` and `1`. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#page-assertions-to-have-screenshot-1-option-max-diff-pixel-ratio" class="list-anchor">#</a>
   - `maxDiffPixels?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-1-option-max-diff-pixels"/> &#60;[number]&#62; An acceptable amount of pixels that could be different. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#page-assertions-to-have-screenshot-1-option-max-diff-pixels" class="list-anchor">#</a>
   - `omitBackground?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-1-option-omit-background"/> &#60;[boolean]&#62; Hides default white background and allows capturing screenshots with transparency. Not applicable to `jpeg` images. Defaults to `false`.<a href="#page-assertions-to-have-screenshot-1-option-omit-background" class="list-anchor">#</a>
-  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-1-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenhots of high-dpi devices will be twice as large or even larger.<a href="#page-assertions-to-have-screenshot-1-option-scale" class="list-anchor">#</a>
+  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-1-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenshots of high-dpi devices will be twice as large or even larger.<a href="#page-assertions-to-have-screenshot-1-option-scale" class="list-anchor">#</a>
 
     Defaults to `"css"`.
   - `threshold?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-1-option-threshold"/> &#60;[number]&#62; An acceptable perceived color difference in the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) between the same pixel in compared images, between zero (strict) and one (lax), default is configurable with `TestConfig.expect`. Defaults to `0.2`.<a href="#page-assertions-to-have-screenshot-1-option-threshold" class="list-anchor">#</a>
@@ -667,7 +667,7 @@ await expect(page).toHaveScreenshot('image.png');
   - `maxDiffPixelRatio?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-max-diff-pixel-ratio"/> &#60;[number]&#62; An acceptable ratio of pixels that are different to the total amount of pixels, between `0` and `1`. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#page-assertions-to-have-screenshot-2-option-max-diff-pixel-ratio" class="list-anchor">#</a>
   - `maxDiffPixels?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-max-diff-pixels"/> &#60;[number]&#62; An acceptable amount of pixels that could be different. Default is configurable with `TestConfig.expect`. Unset by default.<a href="#page-assertions-to-have-screenshot-2-option-max-diff-pixels" class="list-anchor">#</a>
   - `omitBackground?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-omit-background"/> &#60;[boolean]&#62; Hides default white background and allows capturing screenshots with transparency. Not applicable to `jpeg` images. Defaults to `false`.<a href="#page-assertions-to-have-screenshot-2-option-omit-background" class="list-anchor">#</a>
-  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenhots of high-dpi devices will be twice as large or even larger.<a href="#page-assertions-to-have-screenshot-2-option-scale" class="list-anchor">#</a>
+  - `scale?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-scale"/> &#60;"css"|"device"&#62; When set to `"css"`, screenshot will have a single pixel per each css pixel on the page. For high-dpi devices, this will keep screenshots small. Using `"device"` option will produce a single pixel per each device pixel, so screenshots of high-dpi devices will be twice as large or even larger.<a href="#page-assertions-to-have-screenshot-2-option-scale" class="list-anchor">#</a>
 
     Defaults to `"css"`.
   - `threshold?`<a aria-hidden="true" tabindex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-threshold"/> &#60;[number]&#62; An acceptable perceived color difference in the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) between the same pixel in compared images, between zero (strict) and one (lax), default is configurable with `TestConfig.expect`. Defaults to `0.2`.<a href="#page-assertions-to-have-screenshot-2-option-threshold" class="list-anchor">#</a>
@@ -844,6 +844,7 @@ Learn more about [visual comparisons](./test-snapshots.mdx).
 [WebSocket]: /api/class-websocket.mdx "WebSocket"
 [Worker]: /api/class-worker.mdx "Worker"
 [Fixtures]: /api/class-fixtures.mdx "Fixtures"
+[Storage]: /api/class-storage.mdx "Storage"
 [Test]: /api/class-test.mdx "Test"
 [TestConfig]: /api/class-testconfig.mdx "TestConfig"
 [TestError]: /api/class-testerror.mdx "TestError"
