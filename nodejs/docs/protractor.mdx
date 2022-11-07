@@ -76,7 +76,7 @@ test.describe('angularjs homepage todo list', function() {
     });
 
     // You wrote your first test, cross it off the list
-    await todoList.nth(2).locator('input').click();
+    await todoList.nth(2).getByRole('textbox').click();
     var completedAmount = page.locator('.done-true');
     await expect(completedAmount).toHaveCount(2);
   });
@@ -164,9 +164,9 @@ You also get all these ✨ awesome tools ✨ that come bundled with Playwright T
 
 Learn more about Playwright Test runner:
 - [Getting Started](./intro)
-- [Fixtures](./test-fixtures)
+- [Fixtures]
 - [Locators](./api/class-locator)
-- [Selectors](./selectors)
+- [Selectors]
 - [Assertions](./test-assertions)
 - [Auto-waiting](./actionability)
 
@@ -220,6 +220,7 @@ Learn more about Playwright Test runner:
 [WebSocket]: /api/class-websocket.mdx "WebSocket"
 [Worker]: /api/class-worker.mdx "Worker"
 [Fixtures]: /api/class-fixtures.mdx "Fixtures"
+[Storage]: /api/class-storage.mdx "Storage"
 [Test]: /api/class-test.mdx "Test"
 [TestConfig]: /api/class-testconfig.mdx "TestConfig"
 [TestError]: /api/class-testerror.mdx "TestError"

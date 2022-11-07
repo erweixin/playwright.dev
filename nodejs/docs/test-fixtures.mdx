@@ -25,7 +25,7 @@ You have already used test fixtures in your first test.
 import { test, expect } from '@playwright/test';
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.pro/');
+  await page.goto('https://playwright.dev/');
   const title = page.locator('.navbar__inner .navbar__title');
   await expect(title).toHaveText('Playwright');
 });
@@ -38,7 +38,7 @@ test('basic test', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('basic test', async ({ page }) => {
-  await page.goto('https://playwright.pro/');
+  await page.goto('https://playwright.dev/');
   const title = page.locator('.navbar__inner .navbar__title');
   await expect(title).toHaveText('Playwright');
 });
@@ -374,7 +374,7 @@ Notice that in this example, the `page` fixture is able to depend on other built
 ```js
 // example.spec.ts
 
-test.use({ baseURL: 'https://playwright.pro' });
+test.use({ baseURL: 'https://playwright.dev' });
 ```
 
 </TabItem>
@@ -383,7 +383,7 @@ test.use({ baseURL: 'https://playwright.pro' });
 ```js
 // example.spec.js
 
-test.use({ baseURL: 'https://playwright.pro' });
+test.use({ baseURL: 'https://playwright.dev' });
 ```
 
 </TabItem>
@@ -464,9 +464,9 @@ export const test = base.extend<{}, { account: Account }>({
     // Create the account with Playwright.
     const page = await browser.newPage();
     await page.goto('/signup');
-    await page.locator('#username').fill(username);
-    await page.locator('#password').fill(password);
-    await page.locator('text=Sign up').click();
+    await page.getByLabel('User Name').fill(username);
+    await page.getByLabel('Password').fill(password);
+    await page.getByText('Sign up').click();
     // Make sure everything is ok.
     await expect(page.locator('#result')).toHaveText('Success');
     // Do not forget to cleanup.
@@ -480,9 +480,9 @@ export const test = base.extend<{}, { account: Account }>({
     // Sign in with our account.
     const { username, password } = account;
     await page.goto('/signin');
-    await page.locator('#username').fill(username);
-    await page.locator('#password').fill(password);
-    await page.locator('text=Sign in').click();
+    await page.getByLabel('User Name').fill(username);
+    await page.getByLabel('Password').fill(password);
+    await page.getByText('Sign in').click();
     await expect(page.locator('#userinfo')).toHaveText(username);
 
     // Use signed-in page in the test.
@@ -508,9 +508,9 @@ exports.test = base.test.extend({
     // Create the account with Playwright.
     const page = await browser.newPage();
     await page.goto('/signup');
-    await page.locator('#username').fill(username);
-    await page.locator('#password').fill(password);
-    await page.locator('text=Sign up').click();
+    await page.getByLabel('User Name').fill(username);
+    await page.getByLabel('Password').fill(password);
+    await page.getByText('Sign up').click();
     // Make sure everything is ok.
     await expect(page.locator('#result')).toHaveText('Success');
     // Do not forget to cleanup.
@@ -524,9 +524,9 @@ exports.test = base.test.extend({
     // Sign in with our account.
     const { username, password } = account;
     await page.goto('/signin');
-    await page.locator('#username').fill(username);
-    await page.locator('#password').fill(password);
-    await page.locator('text=Sign in').click();
+    await page.getByLabel('User Name').fill(username);
+    await page.getByLabel('Password').fill(password);
+    await page.getByText('Sign in').click();
     await expect(page.locator('#userinfo')).toHaveText(username);
 
     // Use signed-in page in the test.
@@ -1006,6 +1006,7 @@ A few observations:
 [WebSocket]: /api/class-websocket.mdx "WebSocket"
 [Worker]: /api/class-worker.mdx "Worker"
 [Fixtures]: /api/class-fixtures.mdx "Fixtures"
+[Storage]: /api/class-storage.mdx "Storage"
 [Test]: /api/class-test.mdx "Test"
 [TestConfig]: /api/class-testconfig.mdx "TestConfig"
 [TestError]: /api/class-testerror.mdx "TestError"
